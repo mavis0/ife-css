@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>no.1</title>
+        <style>
+            #text {
+                transition: all 1s ;
+                font-size: 20px;
+                margin-bottom: -1px;
+            }
+            #line {
+                transition: all 1s cubic-bezier(0.68, 0, 0.27, 1);
+                background-color: blue;
+                width: 0;
+                margin: 0 auto;
+                border-left: none;
+                border-right: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width: max-content; margin: 200px auto;">
+            <p id="text">前端学院</p>
+            <hr id='line' size="2" color="blue">
+            <button onclick="transition()" style="display: block; margin: 20px auto;">切换样式</button>
+        </div>
+    </body>
+    <script>
+        function* geneStatus() {
+            while (true) {
+                yield false;
+                yield true;
+            }
+        }
+        var s = geneStatus();
+        function transition() {
+            if (s.next().value) {
+                document.getElementById('text').style.color = 'black';
+                document.getElementById('line').style.width = '0px';
+            } else {
+                document.getElementById('text').style.color = 'blue';
+                document.getElementById('line').style.width = '100%';
+            }
+        }
+    </script>
+</html>
