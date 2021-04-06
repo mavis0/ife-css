@@ -22,25 +22,22 @@
         <div style="width: max-content; margin: 200px auto;">
             <p id="text">前端学院</p>
             <hr id='line' size="2" color="blue">
-            <button onclick="transition()" style="display: block; margin: 20px auto;">切换样式</button>
+            <button onclick="f()" style="display: block; margin: 20px auto;">切换样式</button>
         </div>
     </body>
     <script>
-        function* geneStatus() {
-            while (true) {
-                yield false;
-                yield true;
+        const f = (function () {
+            let status = false;
+            return function (){
+                if (status) {
+                    document.getElementById('text').style.color = 'black';
+                    document.getElementById('line').style.width = '0px';
+                } else {
+                    document.getElementById('text').style.color = 'blue';
+                    document.getElementById('line').style.width = '100%';
+                }
+                status = !status;
             }
-        }
-        var s = geneStatus();
-        function transition() {
-            if (s.next().value) {
-                document.getElementById('text').style.color = 'black';
-                document.getElementById('line').style.width = '0px';
-            } else {
-                document.getElementById('text').style.color = 'blue';
-                document.getElementById('line').style.width = '100%';
-            }
-        }
+        }())
     </script>
 </html>
