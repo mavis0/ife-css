@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>no.4-flip</title>
+        <style>
+            div {
+                margin: 0 auto;
+                width: 250px;
+                position: relative;
+                transition: all 1s;
+                transform-style: preserve-3d;
+            }
+            .head, .tail {
+                position: absolute;
+                top: 0;
+                left: 0;
+                backface-visibility: hidden;
+            }
+            .tail {
+                transform: rotateY(180deg);
+            }
+            div:hover {
+                transform: rotateY(180deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img class="head" src="正面.jpg">
+            <img class="tail" src="反面.jpg">
+        </div>
+    </body>
+    <script>
+
+    </script>
+</html>
