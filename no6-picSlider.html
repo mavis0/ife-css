@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>no.4-flip</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+            }
+            #wrap {
+                background-image: url("img/image1.jpeg");
+                height: 100%;
+                background-size: contain;
+            }
+            #preview {
+                position: absolute;
+                display: flex;
+                bottom: 50px;
+                justify-content: space-around;
+                width: 100%;
+            }
+            img {
+                width: 17%;
+                filter: brightness(0.7);
+            }
+            img:hover {
+                filter: brightness(1);
+            }
+            @keyframes img-1 {
+                from {
+                    transform: translateX(-500px);
+                }
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes img-2 {
+                from {
+                    transform: translateY(300px);
+                }
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes img-3 {
+                from {
+                    transform: scale(0.1, 0.1);
+                }
+                to {
+                    transform: scale(1, 1);
+                }
+            }
+
+            @keyframes img-4 {
+                from {
+                    transform: scale(2, 2);
+                }
+                to {
+                    transform: scale(1, 1);
+                }
+            }
+
+            @keyframes img-5 {
+                from {
+                    transform: scale(0.1, 0.1) rotate(-360deg);
+                }
+                to {
+                    transform: scale(1, 1) rotate(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+        </div>
+        <div id="preview">
+            <img src="./img/image1.jpeg">
+            <img src="./img/image2.jpeg">
+            <img src="./img/image3.jpeg">
+            <img src="./img/image4.jpeg">
+            <img src="./img/image5.jpeg">
+        </div>
+    </body>
+    <script>
+        let imgs = document.getElementById('preview').children;
+        let warp = document.getElementById('wrap');
+        imgs[0].addEventListener('click', function() {
+            warp.style.backgroundImage = "url('./img/image1.jpeg')" ;
+            warp.style.animation = "img-1 0.5s ease-out";
+        })
+        imgs[1].addEventListener('click', function() {
+            warp.style.backgroundImage = "url('./img/image2.jpeg')" ;
+            warp.style.animation = "img-2 0.5s ease-out";
+        })
+        imgs[2].addEventListener('click', function() {
+            warp.style.backgroundImage = "url('./img/image3.jpeg')" ;
+            warp.style.animation = "img-3 1s ease-in";
+        })
+        imgs[3].addEventListener('click', function() {
+            warp.style.backgroundImage = "url('./img/image4.jpeg')" ;
+            warp.style.animation = "img-4 1s ease-out";
+        })
+        imgs[4].addEventListener('click', function() {
+            warp.style.backgroundImage = "url('./img/image5.jpeg')" ;
+            warp.style.animation = "img-5 0.7s ease-in-out";
+        })
+    </script>
+</html>
